@@ -1,0 +1,9 @@
+
+
+engine = sa.engine.create_engine('sqlite:///AR.db')
+Session=sessionmaker(engine)
+session=Session()
+
+all_categories=session.query(Content).all()
+
+

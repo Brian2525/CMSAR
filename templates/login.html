@@ -1,0 +1,17 @@
+{%extends "base.html" %}
+{% import "bootstrap5/form.html"  as wtf%}
+
+
+{%block title%} <title>Login Page </title> {%endblock%}
+
+
+{%block content %}
+<div class="container">
+    <h1>Login</h1>
+
+    {{ wtf.render_form(form, method="post") }}
+
+</div>
+{%endblock %}
+
+

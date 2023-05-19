@@ -1,0 +1,48 @@
+{%extends "base.html" %}
+
+
+{%block title%} <title>Augmented reality - Creators Studio</title> {%endblock%}
+
+
+
+
+
+{%block content %}
+<div class="container">
+<h1>Dashboard</h1>
+    <button type="submit" onclick="window.location.href='{{url_for('creators')}}'" class="btn btn-primary">Subir modelo</button>
+
+    <table class="table">
+  <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Category</th>
+        <th scope="col">Version</th>
+        <th scope="col">ACTION(view or delete)</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+  {%for ar in all_models %}
+    <tr>
+      <th scope="row">{{ar.id}}</th>
+      <td>{{ar.name}}</td>
+      <td><img src="{{ar.image}}" width="200" height="200"></td>
+      <td>{{ar.category}}</td>
+      <td>{{ar.version}}</td>
+      <td>Edit or <a href="{{url_for('delete_3d', model_id=ar.id)}}"> Delete</a> </td>
+    </tr>
+  {%endfor%}
+
+  </tbody>
+</table>
+
+    </div>
+
+
+
+
+{%endblock %}

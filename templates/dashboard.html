@@ -1,0 +1,59 @@
+{%extends "base.html" %}
+
+
+{%block title%} <title>Augmented reality</title> {%endblock%}
+
+
+
+
+
+{%block content %}
+<div class="container">
+<h1>Dashboard</h1>
+    <button type="submit" onclick="window.location.href='{{url_for('create')}}'" class="btn btn-primary">Create New</button>
+
+    <table class="table">
+  <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Model</th>
+        <th scope="col">QR CODE</th>
+        <th scope="col">Embedded</th>
+        <th scope="col">AR STATUS</th>
+        <th scope="col">EXPIRY</th>
+        <th scope="col">Views</th>
+        <th scope="col">ACTION(view or delete)</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+  {%for ar in ar_all %}
+    <tr>
+      <th scope="row">{{ar.id}}</th>
+      <td>{{ar.name}}</td>
+      <td>{{ar.model}}</td>
+      <td>Imagen QR</td>
+        <td> <textarea cols="40" rows="3"> <iframe width='100%' height='100%' src='https://realidadaumentada.app/viewAR?ar_id={{ar.id}}' frameborder='0'></iframe> </textarea> </td>
+        {%if ar.ar_status%}
+      <td> Activo</td>
+      {%else%}
+        <td>Inactivo</td>
+        {%endif%}
+      <td>{{ar.expiration_date}}</td>
+      <td>{{ar.views}}</td>
+      <td>Edit or <a href="{{url_for('delete', ar_id=ar.id)}}"> Delete</a> </td>
+      <td><a href="{{url_for('viewar', ar_id=ar.id)}}"> Ver AR </a></td>
+    </tr>
+  {%endfor%}
+
+  </tbody>
+</table>
+
+    </div>
+
+
+
+
+{%endblock %}

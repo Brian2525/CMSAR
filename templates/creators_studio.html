@@ -1,0 +1,20 @@
+{%extends "base.html" %}
+{% import "bootstrap5/form.html"  as wtf%}
+
+
+
+{%block content %}
+
+<div class="container">
+    <h1>Subir modelo</h1>
+
+    <div class="container position-relative">
+     <button type="submit" onclick="window.location.href='{{url_for('dashboard_models')}}'" class="btn btn-lg btn-danger">Cancelar</button>
+    </div>
+
+    {{ wtf.render_form(form, method="post") }}
+
+</div>
+
+
+{%endblock %}

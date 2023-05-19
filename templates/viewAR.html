@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>{{ar.name}}</title>
+    <meta charset="utf-8">
+    <meta name="description" content="{{ar.description}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="/static/styles.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- <model-viewer> HTML element -->
+    <h1>{{ar.name}} {{ar.model}} </h1>
+    <model-viewer src="{{ar.gbl}}.glb"
+                  ios-src="{{ar.usdz}}"
+                  ar ar-modes="webxr scene-viewer quick-look"
+                  camera-controls poster="/static/gallery/poster/poster.webp" shadow-intensity="1">
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          Ver en tu espacio
+      </button>
+      <div id="ar-prompt">
+          <img src="/static/ar_hand_prompt.png">
+      </div>
+    </model-viewer>
+    <script src="/static/script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+{%extends "base.html" %}
+{% import "bootstrap5/form.html"  as wtf%}
+
+
+
+# 3 steps for creating augmented reality experience
+# create augmented reality without image
+#1.- choose from gallery an item
+#2.- publish your content
+
+# {{ wtf.render_form(form, method="post") }}
+
+ {% block content %}
+<div class="container">
+<form action="" method="post" >
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+    <label >Name {{form.name}}</label>
+    </div>
+
+    <div class="form-group">
+    <label >Description {{form.description}}</label>
+    </div>
+
+
+    {{form.ar}}
+
+
+
+    {{form.submit}}
+
+
+
+
+</form>
+
+
+
+ </div>
+
+{% endblock %}
